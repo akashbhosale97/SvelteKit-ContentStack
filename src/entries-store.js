@@ -7,3 +7,4 @@ export const contact = writable([]);
 export const blog = writable([]);
 export const blogs = writable([]);
 export const footer = writable([]);
+export const selectedBlog = writable([]);

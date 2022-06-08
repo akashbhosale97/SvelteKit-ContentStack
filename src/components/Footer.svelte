@@ -1,11 +1,10 @@
 <script>
-	import { getEntry } from '../sdk';
+	import { getEntry } from '../sdk/index.svelte';
 	import { onMount } from 'svelte';
 	import { footer } from '../entries-store';
 	onMount(async () => {
 		let result = await getEntry('Footer');
 		footer.set(result[0]);
-		console.log(result[0]);
 	});
 </script>
 

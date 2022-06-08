@@ -1,5 +1,5 @@
 <script>
-	import { getEntry } from '../sdk';
+	import { getEntry } from '../sdk/index.svelte';
 	import { onMount } from 'svelte';
 	import { header } from '../entries-store';
 	onMount(async () => {

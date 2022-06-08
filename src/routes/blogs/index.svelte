@@ -1,8 +1,9 @@
 <script>
-	import { getEntryByRef } from '../sdk';
+	import { getEntryByRef } from '../../sdk/index.svelte';
 	import { onMount } from 'svelte';
-	import { blog, blogs } from '../entries-store';
-	import BlogCard from '../components/BlogCard.svelte';
+	import { blog, blogs } from '../../entries-store';
+	import BlogCard from '../../components/BlogCard.svelte';
+	import { fly } from 'svelte/transition';
 	onMount(async () => {
 		let result = await getEntryByRef('Page', [
 			'pages.blog.blog_reference',
@@ -12,11 +13,10 @@
 		blogs.set(result.pages[3].blog);
 		blog.set([$blogs.blog_reference[0], $blogs.blog_reference2[0], $blogs.blog_reference3[0]]);
 	});
-	console.log($blogs);
 </script>
 
 {#if $blogs.length !== 0}
-	<div>
+	<div in:fly={{ y: 50, duration: 500, delay: 500 }} out:fly={{ y: -50, duration: 500 }}>
 		<div
 			class="container-fluid py-5 text-white"
 			style="height: 300px; background: #715cdd"

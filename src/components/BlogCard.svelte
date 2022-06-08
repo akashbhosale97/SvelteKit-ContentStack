@@ -1,9 +1,8 @@
 <script>
 	export let blog;
-	console.log(blog.blog_content);
 </script>
 
-<a href={`/blog/${blog.blog_title}`} class="link-dark text-decoration-none">
+<a href="/blogs/{blog.uid}" class="link-dark text-decoration-none">
 	<div class="card mb-3" role="button" data-aos="fade-up">
 		<div class="row g-0 align-items-center">
 			<div class="col-md-4">

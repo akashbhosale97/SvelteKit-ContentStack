@@ -1,9 +1,9 @@
 import Contentstack from 'contentstack';
 
 const Stack = Contentstack.Stack({
-	api_key: 'blt79138ebfed6f6d81',
-	delivery_token: 'csdf2e5a5f2b460cc5615aafd7',
-	environment: 'my-test-app'
+	api_key: import.meta.env.VITE_API_KEY,
+	delivery_token: import.meta.env.VITE_DELIVERY_TOKEN,
+	environment: import.meta.env.VITE_ENVIRONMENT
 });
 
 export const getEntry = (ctype) => {

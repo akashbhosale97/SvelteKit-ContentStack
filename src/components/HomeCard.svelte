@@ -12,23 +12,3 @@
 		<a href="/" class="btn btn-outline-dark">Read More</a>
 	</div>
 </div>
-
-<style>
-	.aboutcard {
-		width: 380px;
-	}
-	@media screen and (max-width: 780px) {
-		.aboutcard {
-			width: 100%;
-		}
-		.right {
-			width: 100%;
-		}
-		h3 {
-			font-size: 22px;
-		}
-		p {
-			font-size: 16px;
-		}
-	}
-</style>
