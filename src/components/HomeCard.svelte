@@ -9,7 +9,7 @@
 		<p class="card-text fs-5 my-lg-4 my-sm-5 homecardcontent">
 			{content}
 		</p>
-		<a href="" class="btn btn-outline-dark">Read More</a>
+		<a href="/" class="btn btn-outline-dark">Read More</a>
 	</div>
 </div>
 

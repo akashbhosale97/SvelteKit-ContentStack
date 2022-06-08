@@ -67,11 +67,7 @@
 	{/if}
 </div>
 
-<!-- <style>
-	.banner__first {
-		padding-top: 65px;
-	}
-
+<style>
 	@media screen and (max-width: 780px) {
 		.home__view {
 			justify-content: center !important;
@@ -84,4 +80,4 @@
 			padding-top: 60px;
 		}
 	}
-</style> -->
+</style>

@@ -1,3 +1,7 @@
+<script>
+	export let img, blogTitle, blogContent, blogAuthor;
+</script>
+
 <div class="container-fluid" style={{ background: '#f7f7f7' }} data-aos="fade-up">
 	<div class="py-5 my-5 container text-left">
 		<div class="blog__title fs-1">{data[0].blog_title}</div>

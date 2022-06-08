@@ -4,18 +4,18 @@
 	import { header } from '../entries-store';
 	onMount(async () => {
 		let result = await getEntry('Header');
-		header.set(result);
+		header.set(result[0]);
 	});
 </script>
 
 <div>
-	{#if $header[0]}
+	{#if $header.length !== 0}
 		<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
 			<div class="container">
 				<a class="navbar-brand d-flex align-items-center" href="/">
-					<img src={$header[0].nav[0].logo.logo.logo_img.url} alt="..." class="csimg me-2" />
+					<img src={$header.nav[0].logo.logo.logo_img.url} alt="..." class="csimg me-2" />
 					<h3 class="pt-2 fs-4">
-						{$header[0].nav[0].logo.logo.logo_brand}
+						{$header.nav[0].logo.logo.logo_brand}
 					</h3>
 				</a>
 				<button
@@ -30,28 +30,28 @@
 				>
 					<span class="navbar-toggler-icon" />
 				</button>
-				<div class="collapse navbar-collapse navbar__$header" id="navbarSupportedContent">
+				<div class="collapse navbar-collapse navbar__header" id="navbarSupportedContent">
 					<ul class="navbar-nav mb-2 ms-auto mb-lg-0 fs-5 show" id="ul-toggle">
 						<li class="nav-item px-lg-3 mx-auto">
 							<a
 								class="nav-link"
 								aria-current="page"
-								href={$header[0].nav[1].nav_links.nav_links.home.href}
+								href={$header.nav[1].nav_links.nav_links.home.href}
 							>
-								{$header[0].nav[1].nav_links.nav_links.home.title}
+								{$header.nav[1].nav_links.nav_links.home.title}
 							</a>
 						</li>
 						<li class="nav-item px-lg-3 mx-auto">
-							<a class="nav-link" href={$header[0].nav[1].nav_links.nav_links.about.href}>
-								{$header[0].nav[1].nav_links.nav_links.about.title}
+							<a class="nav-link" href={$header.nav[1].nav_links.nav_links.about.href}>
+								{$header.nav[1].nav_links.nav_links.about.title}
 							</a>
 						</li>
 						<li class="nav-item px-lg-3 mx-auto">
 							<a class="nav-link" href="/blogs"> Blogs </a>
 						</li>
 						<li class="nav-item px-lg-3 mx-auto">
-							<a class="nav-link" href={$header[0].nav[1].nav_links.nav_links.contact.href}>
-								{$header[0].nav[1].nav_links.nav_links.contact.title}
+							<a class="nav-link" href={$header.nav[1].nav_links.nav_links.contact.href}>
+								{$header.nav[1].nav_links.nav_links.contact.title}
 							</a>
 						</li>
 					</ul>
@@ -64,13 +64,32 @@
 </div>
 
 <style>
-	.loading {
+	@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+	:global(*) {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		font-family: 'Quicksand', sans-serif;
+	}
+
+	:global(body) {
+		padding-top: 8vh;
+	}
+
+	:global(h1, h2, h3, h4, h5, ul, p) {
+		margin: 0 !important;
+		padding: 0 !important;
+	}
+
+	:global(.loading) {
 		display: flex;
 		justify-content: center;
 	}
+
 	.navbar {
 		background: #fff !important;
 		box-shadow: 2px 2px 8px 1px rgba(0, 0, 0, 0.1);
+		height: 8vh;
 	}
 
 	.navbar-nav li a {

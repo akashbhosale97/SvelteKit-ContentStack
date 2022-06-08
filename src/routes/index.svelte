@@ -1,7 +1,5 @@
 <script>
-	import About from './About.svelte';
-	import Home from './Home.svelte';
+	import Home from './home.svelte';
 </script>
 
 <Home />
-<About />
