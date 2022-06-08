@@ -1,7 +1,7 @@
 <script>
 	import Banner from '../components/Banner.svelte';
 	import HomeCard from '../components/HomeCard.svelte';
-	import { getEntryByRef } from '../sdk/index.svelte';
+	import { getEntryByRef } from '../sdk';
 	import { onMount } from 'svelte';
 	import { home } from '../entries-store';
 	import { fly } from 'svelte/transition';
@@ -79,9 +79,6 @@
 		.home__learn {
 			font-size: 18px;
 			margin-bottom: 20px;
-		}
-		.banner__first {
-			padding-top: 60px;
 		}
 	}
 </style>

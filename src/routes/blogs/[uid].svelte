@@ -2,7 +2,7 @@
 	import { blog, selectedBlog } from '../../entries-store';
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
-	import { getEntryByRef } from '../../sdk/index.svelte';
+	import { getEntryByRef } from '../../sdk';
 	import { fly } from 'svelte/transition';
 	onMount(async () => {
 		let result = await getEntryByRef('Page', [

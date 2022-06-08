@@ -1,5 +1,5 @@
 <script>
-	import { getEntryByRef } from '../../sdk/index.svelte';
+	import { getEntryByRef } from '../../sdk';
 	import { onMount } from 'svelte';
 	import { blog, blogs } from '../../entries-store';
 	import BlogCard from '../../components/BlogCard.svelte';

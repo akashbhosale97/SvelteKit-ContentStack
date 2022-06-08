@@ -1,7 +1,7 @@
 <script>
 	import AboutCard from '../components/AboutCard.svelte';
 	import Banner from '../components/Banner.svelte';
-	import { getEntryByRef } from '../sdk/index.svelte';
+	import { getEntryByRef } from '../sdk';
 	import { onMount } from 'svelte';
 	import { about } from '../entries-store';
 	import { fly } from 'svelte/transition';
