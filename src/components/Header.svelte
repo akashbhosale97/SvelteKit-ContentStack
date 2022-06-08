@@ -59,7 +59,7 @@
 			</div>
 		</nav>
 	{:else}
-		<div class="loading">Loading...</div>
+		""
 	{/if}
 </div>
 

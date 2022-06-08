@@ -67,7 +67,7 @@
 			</div>
 		</div>
 	{:else}
-		<div class="loading">Loading...</div>
+		''
 	{/if}
 </div>
 
