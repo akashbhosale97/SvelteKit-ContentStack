@@ -11,7 +11,7 @@
 {#if $footer.length !== 0}
 	<div class="container pb-3">
 		<nav class="d-flex justify-content-between align-items-center footer ">
-			<a class="navbar-brand d-flex align-items-center" href="/">
+			<a class="navbar-brand d-flex align-items-center" href="/" sveltekit:prefetch>
 				<img src={$footer.footer_logo.url} alt="..." class="csimg me-2" />
 				<h3 class="pt-2 fs-4 text-dark">{$footer.footer_brand}</h3>
 			</a>

@@ -12,7 +12,7 @@
 	{#if $header.length !== 0}
 		<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
 			<div class="container">
-				<a class="navbar-brand d-flex align-items-center" href="/">
+				<a class="navbar-brand d-flex align-items-center" href="/" sveltekit:prefetch>
 					<img src={$header.nav[0].logo.logo.logo_img.url} alt="..." class="csimg me-2" />
 					<h3 class="pt-2 fs-4">
 						{$header.nav[0].logo.logo.logo_brand}
@@ -37,20 +37,29 @@
 								class="nav-link"
 								aria-current="page"
 								href={$header.nav[1].nav_links.nav_links.home.href}
+								sveltekit:prefetch
 							>
 								{$header.nav[1].nav_links.nav_links.home.title}
 							</a>
 						</li>
 						<li class="nav-item px-lg-3 mx-auto">
-							<a class="nav-link" href={$header.nav[1].nav_links.nav_links.about.href}>
+							<a
+								class="nav-link"
+								href={$header.nav[1].nav_links.nav_links.about.href}
+								sveltekit:prefetch
+							>
 								{$header.nav[1].nav_links.nav_links.about.title}
 							</a>
 						</li>
 						<li class="nav-item px-lg-3 mx-auto">
-							<a class="nav-link" href="/blogs"> Blogs </a>
+							<a class="nav-link" href="/blogs" sveltekit:prefetch> Blogs </a>
 						</li>
 						<li class="nav-item px-lg-3 mx-auto">
-							<a class="nav-link" href={$header.nav[1].nav_links.nav_links.contact.href}>
+							<a
+								class="nav-link"
+								href={$header.nav[1].nav_links.nav_links.contact.href}
+								sveltekit:prefetch
+							>
 								{$header.nav[1].nav_links.nav_links.contact.title}
 							</a>
 						</li>

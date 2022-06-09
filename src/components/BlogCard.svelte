@@ -2,7 +2,7 @@
 	export let blog;
 </script>
 
-<a href="/blogs/{blog.uid}" class="link-dark text-decoration-none">
+<a href="/blogs/{blog.uid}" class="link-dark text-decoration-none" sveltekit:prefetch>
 	<div class="card mb-3" role="button" data-aos="fade-up">
 		<div class="row g-0 align-items-center">
 			<div class="col-md-12">
