@@ -57,7 +57,7 @@
 		</nav>
 	</div>
 {:else}
-	""
+	<br />
 {/if}
 
 <style>

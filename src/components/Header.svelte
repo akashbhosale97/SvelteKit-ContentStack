@@ -59,7 +59,7 @@
 			</div>
 		</nav>
 	{:else}
-		""
+		<br />
 	{/if}
 </div>
 
@@ -81,15 +81,9 @@
 		padding: 0 !important;
 	}
 
-	:global(.loading) {
-		display: flex;
-		justify-content: center;
-	}
-
 	.navbar {
 		background: #fff !important;
 		box-shadow: 2px 2px 8px 1px rgba(0, 0, 0, 0.1);
-		height: 8vh;
 	}
 
 	.navbar-nav li a {

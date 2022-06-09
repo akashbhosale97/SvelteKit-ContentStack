@@ -79,7 +79,7 @@
 			</div>
 		</div>
 	{:else}
-		""
+		<br />
 	{/if}
 </div>
 

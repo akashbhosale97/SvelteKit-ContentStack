@@ -36,7 +36,7 @@
 		</div>
 	</div>
 {:else}
-	''
+	<br />
 {/if}
 
 <style>
