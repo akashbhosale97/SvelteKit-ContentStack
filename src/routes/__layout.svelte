@@ -5,14 +5,14 @@
 
 <main>
 	<Header />
-	<div>
+	<div class="main-div">
 		<slot />
 	</div>
 	<Footer />
 </main>
 
 <style>
-	div {
+	.main-div {
 		min-height: calc(100vh - (8vh + 66px));
 	}
 </style>
