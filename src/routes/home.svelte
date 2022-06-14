@@ -17,6 +17,9 @@
 	});
 </script>
 
+<svelte:head>
+	<title>Home</title>
+</svelte:head>
 <div>
 	{#if $home.length !== 0}
 		<div in:fly={{ y: 50, duration: 500, delay: 500 }} out:fly={{ y: -50, duration: 500 }}>

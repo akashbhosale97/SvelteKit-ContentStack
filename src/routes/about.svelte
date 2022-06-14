@@ -18,6 +18,9 @@
 	});
 </script>
 
+<svelte:head>
+	<title>About</title>
+</svelte:head>
 <div class="about_wrapper">
 	{#if $about.length !== 0}
 		<div in:fly={{ y: 50, duration: 500, delay: 500 }} out:fly={{ y: -50, duration: 500 }}>

@@ -9,6 +9,9 @@
 	});
 </script>
 
+<svelte:head>
+	<title>Contact</title>
+</svelte:head>
 {#if $contact.length !== 0}
 	<div in:fly={{ y: 50, duration: 500, delay: 500 }} out:fly={{ y: -50, duration: 500 }}>
 		<div class="container" style={{ paddingTop: '80px' }}>
