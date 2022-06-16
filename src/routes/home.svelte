@@ -2,68 +2,68 @@
 	import Banner from '../components/Banner.svelte';
 	import HomeCard from '../components/HomeCard.svelte';
 	import { getEntryByRef } from '../sdk';
-	import { onMount } from 'svelte';
-	import { home } from '../entries-store';
-	import { fly } from 'svelte/transition';
 
-	onMount(async () => {
+	let home;
+	const getHomeData = async () => {
 		let result = await getEntryByRef('Page', [
 			'pages.home.banner1',
 			'pages.home.banner2',
 			'pages.home.card1',
 			'pages.home.card2'
 		]);
-		home.set(result.pages[0].home);
-	});
+		return result;
+	};
+	$: getHomeData().then((val) => (home = val.pages[0].home));
 </script>
 
 <svelte:head>
 	<title>Home</title>
 </svelte:head>
+
 <div>
-	{#if $home.length !== 0}
-		<div in:fly={{ y: 50, duration: 500, delay: 500 }} out:fly={{ y: -50, duration: 500 }}>
-			<div class="banner__first" data-aos="fade-up">
+	{#if home}
+		<div>
+			<div class="banner__first">
 				<Banner
-					img={$home.banner1[0].banner_img.url}
+					img={home.banner1[0].banner_img.url}
 					classN="text-white"
-					btntext={$home.banner1[0].banner_btntxt}
-					text1={$home.banner1[0].banner_heading}
-					text2={$home.banner1[0].banner_content}
+					btntext={home.banner1[0].banner_btntxt}
+					text1={home.banner1[0].banner_heading}
+					text2={home.banner1[0].banner_content}
 				/>
 			</div>
-			<div data-aos="fade-up">
+			<div>
 				<Banner
 					direction="row-reverse"
 					background="white"
-					img={$home.banner2[0].banner_img.url}
+					img={home.banner2[0].banner_img.url}
 					classN="text-dark"
-					btntext={$home.banner2[0].banner_btntxt}
+					btntext={home.banner2[0].banner_btntxt}
 					bg="bg-transparent"
-					text1={$home.banner2[0].banner_heading}
-					text2={$home.banner2[0].banner_content}
+					text1={home.banner2[0].banner_heading}
+					text2={home.banner2[0].banner_content}
 				/>
 			</div>
 			<div class="container my-4">
 				<div class="row mb-4">
-					<div class="col-lg-6 h2 text-center home__learn">{$home.learn_title}</div>
+					<div class="col-lg-6 h2 text-center home__learn">{home.learn_title}</div>
 					<div class="col-lg-6 d-flex justify-content-end home__view">
-						<button class="btn btn-outline-dark fw-bold">{$home.view_btn_text}</button>
+						<button class="btn btn-outline-dark fw-bold">{home.view_btn_text}</button>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-lg-6 my-lg-0 my-sm-3" data-aos="fade-up">
+					<div class="col-lg-6 my-lg-0 my-sm-3">
 						<HomeCard
-							img={$home.card1[0].banner_img.url}
-							title={$home.card1[0].banner_heading}
-							content={$home.card1[0].banner_content}
+							img={home.card1[0].banner_img.url}
+							title={home.card1[0].banner_heading}
+							content={home.card1[0].banner_content}
 						/>
 					</div>
-					<div class="col-lg-6" data-aos="fade-up">
+					<div class="col-lg-6">
 						<HomeCard
-							img={$home.card2[0].banner_img.url}
-							title={$home.card2[0].banner_heading}
-							content={$home.card1[0].banner_content}
+							img={home.card2[0].banner_img.url}
+							title={home.card2[0].banner_heading}
+							content={home.card1[0].banner_content}
 						/>
 					</div>
 				</div>

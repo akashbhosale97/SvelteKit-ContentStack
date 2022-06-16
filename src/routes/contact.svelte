@@ -1,37 +1,37 @@
 <script>
 	import { getEntry } from '../sdk';
-	import { onMount } from 'svelte';
-	import { contact } from '../entries-store';
-	import { fly } from 'svelte/transition';
-	onMount(async () => {
+	let contact;
+	const getContactData = async () => {
 		let result = await getEntry('Page');
-		contact.set(result[0].pages[2].contact);
-	});
+		return result;
+	};
+	$: getContactData().then((val) => (contact = val[0].pages[2].contact));
 </script>
 
 <svelte:head>
 	<title>Contact</title>
 </svelte:head>
-{#if $contact.length !== 0}
-	<div in:fly={{ y: 50, duration: 500, delay: 500 }} out:fly={{ y: -50, duration: 500 }}>
+
+{#if contact}
+	<div>
 		<div class="container" style={{ paddingTop: '80px' }}>
 			<div class="row" style={{ marginBottom: '100px', minHeight: '70vh' }}>
 				<div class="col-lg-6">
-					<h1 class="my-lg-5 my-4 contacttitle">{$contact.contact_title}</h1>
-					<p class="contactcontent my-lg-2 my-4">{$contact.contact_content}</p>
+					<h1 class="my-lg-5 my-4 contacttitle">{contact.contact_title}</h1>
+					<p class="contactcontent my-lg-2 my-4">{contact.contact_content}</p>
 				</div>
 				<div class="col-lg-6">
 					<form>
-						<input type="text" placeholder={$contact.name_placeholder} class="w-100 my-lg-4" />
-						<input type="email" placeholder={$contact.email_placeholder} class="w-100 my-lg-4" />
-						<textarea class="w-100 my-lg-4" placeholder={$contact.message_placeholder} />
+						<input type="text" placeholder={contact.name_placeholder} class="w-100 my-lg-4" />
+						<input type="email" placeholder={contact.email_placeholder} class="w-100 my-lg-4" />
+						<textarea class="w-100 my-lg-4" placeholder={contact.message_placeholder} />
 						<button
 							class="btn btn-primary btnbgcolor px-lg-3 py-lg-2 py-sm-0 px-sm-0"
 							onClick={(e) => {
 								e.preventDefault();
 							}}
 						>
-							{$contact.sendmsg_btn}
+							{contact.sendmsg_btn}
 						</button>
 					</form>
 				</div>
