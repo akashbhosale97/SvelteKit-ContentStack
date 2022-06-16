@@ -1,21 +1,21 @@
 <script>
 	import { getEntry } from '../sdk';
-	import { onMount } from 'svelte';
-	import { header } from '../entries-store';
-	onMount(async () => {
+	let header;
+	const getHeaderData = async () => {
 		let result = await getEntry('Header');
-		header.set(result[0]);
-	});
+		return result;
+	};
+	$: getHeaderData().then((val) => (header = val[0]));
 </script>
 
 <div>
-	{#if $header.length !== 0}
+	{#if header}
 		<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
 			<div class="container">
 				<a class="navbar-brand d-flex align-items-center" href="/" sveltekit:prefetch>
-					<img src={$header.nav[0].logo.logo.logo_img.url} alt="..." class="csimg me-2" />
+					<img src={header.nav[0].logo.logo.logo_img.url} alt="..." class="csimg me-2" />
 					<h3 class="pt-2 fs-4">
-						{$header.nav[0].logo.logo.logo_brand}
+						{header.nav[0].logo.logo.logo_brand}
 					</h3>
 				</a>
 				<button
@@ -36,19 +36,19 @@
 							<a
 								class="nav-link"
 								aria-current="page"
-								href={$header.nav[1].nav_links.nav_links.home.href}
+								href={header.nav[1].nav_links.nav_links.home.href}
 								sveltekit:prefetch
 							>
-								{$header.nav[1].nav_links.nav_links.home.title}
+								{header.nav[1].nav_links.nav_links.home.title}
 							</a>
 						</li>
 						<li class="nav-item px-lg-3 mx-auto">
 							<a
 								class="nav-link"
-								href={$header.nav[1].nav_links.nav_links.about.href}
+								href={header.nav[1].nav_links.nav_links.about.href}
 								sveltekit:prefetch
 							>
-								{$header.nav[1].nav_links.nav_links.about.title}
+								{header.nav[1].nav_links.nav_links.about.title}
 							</a>
 						</li>
 						<li class="nav-item px-lg-3 mx-auto">
@@ -57,10 +57,10 @@
 						<li class="nav-item px-lg-3 mx-auto">
 							<a
 								class="nav-link"
-								href={$header.nav[1].nav_links.nav_links.contact.href}
+								href={header.nav[1].nav_links.nav_links.contact.href}
 								sveltekit:prefetch
 							>
-								{$header.nav[1].nav_links.nav_links.contact.title}
+								{header.nav[1].nav_links.nav_links.contact.title}
 							</a>
 						</li>
 					</ul>

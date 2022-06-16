@@ -1,21 +1,21 @@
 <script>
 	import { getEntry } from '../sdk';
-	import { onMount } from 'svelte';
-	import { footer } from '../entries-store';
-	onMount(async () => {
-		let result = await getEntry('Footer');
-		footer.set(result[0]);
-	});
+	let footer;
+	const getFooterData = async () => {
+		let result = getEntry('Footer');
+		return result;
+	};
+	$: getFooterData().then((val) => (footer = val[0]));
 </script>
 
-{#if $footer.length !== 0}
+{#if footer}
 	<div class="container pb-3">
 		<nav class="d-flex justify-content-between align-items-center footer ">
 			<a class="navbar-brand d-flex align-items-center" href="/" sveltekit:prefetch>
-				<img src={$footer.footer_logo.url} alt="..." class="csimg me-2" />
-				<h3 class="pt-2 fs-4 text-dark">{$footer.footer_brand}</h3>
+				<img src={footer.footer_logo.url} alt="..." class="csimg me-2" />
+				<h3 class="pt-2 fs-4 text-dark">{footer.footer_brand}</h3>
 			</a>
-			<p class="footer__copy">{$footer.copy}</p>
+			<p class="footer__copy">{footer.copy}</p>
 			<div class="icons">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
